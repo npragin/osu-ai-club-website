@@ -1,34 +1,76 @@
 ---
-import "../styles/global.css";
+import Default from "../layouts/Default.astro";
+import Marquee from "@/components/ui/marquee";
 
-// Components
-import { CTA, Events, Features, Footer, Header, Hero } from "../components";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import heroAcm from "@/assets/acm.svg";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png}",
+);
+const imageResolvers = Object.values(images);
+
+const topMarqueeImages = imageResolvers.slice(0, imageResolvers.length / 2);
+const botMarqueeImages = imageResolvers.slice(imageResolvers.length / 2);
+
+const BANNER_MESSAGE = undefined;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/acmlogo.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>ACM - Oregon State University</title>
-  </head>
-  <body>
-    <main>
-      <Header client:load />
-      <Hero client:load />
-      <!-- <Form client:load /> -->
-      <Features client:load />
-      <Events client:load />
-      <CTA />
-      <Footer />
-    </main>
-  </body>
-</html>
+<Default bannerMessage={BANNER_MESSAGE}>
+  <div
+    class="my-5 mx-auto max-w-[50rem] bg-background text-white rounded-md font-mono drop-shadow-2xl border-2"
+  >
+    <div class="border-b-2 h-6 pl-2 flex items-center space-x-2">
+      <div class="h-3 w-3 bg-white rounded-full"></div>
+      <div class="h-3 w-3 bg-white rounded-full"></div>
+      <div class="h-3 w-3 bg-white rounded-full"></div>
+    </div>
+    <!-- <Image
+      class="p-4 md:hidden"
+      src={heroAcm}
+      alt="Association for Computing Machinery"
+      height="300"
+    /> -->
+    <p class="font-bold text-4xl p-5 font-mono md:text-7xl md:p-7">
+      Association <br /> For Computing <br />
+      Machinery
+    </p>
+  </div>
+  <div class="space-y-2 text-white my-12 max-w-[60rem]">
+    <h2 class="text-4xl text-center font-semibold">
+      OSU's premier computer science community
+    </h2>
+    <p class="text-center px-12">
+      At the ACM Student Chapter at OSU, we unite students with an interest in
+      computer science. We offer a mix of professional development and social
+      activities, ensuring our members thrive both academically and socially.
+    </p>
+  </div>
+  <div class="my-4">
+    <Marquee className="[--duration:40s]">
+      {
+        topMarqueeImages.map((resolver) => (
+          <Image
+            class="rounded-lg h-64"
+            src={resolver()}
+            alt="ACM Event Image"
+            height="300"
+          />
+        ))
+      }
+    </Marquee>
+    <Marquee reverse className="[--duration:40s]">
+      {
+        botMarqueeImages.map((resolver) => (
+          <Image
+            class="rounded-lg h-64"
+            src={resolver()}
+            alt="ACM Event Image"
+            height="300"
+          />
+        ))
+      }
+    </Marquee>
+  </div>
+</Default>

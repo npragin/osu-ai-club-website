@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Resource {
+  title: string;
+  link: string;
+  description?: string;
+}
+
+interface Props {
+  resources: Resource[];
+  title: string;
+}
+
+const { resources, title } = Astro.props;
+---
+
+<div class="">
+  <h2 class="font-semibold text-5xl text-center mb-5">{title}</h2>
+  <div class="p-4 text-nowrap bg-black bg-opacity-20 rounded-md space-y-4">
+    {
+      resources.map((resource) => (
+        <div>
+          <a href={resource.link} class="group">
+            <dl class="grid grid-cols-[auto_1fr] w-full">
+              <Icon
+                name="external-link"
+                class="text-primary mr-2 self-center"
+              />
+              <dt class="font-bold underline group-hover:text-primary">
+                {resource.title}
+              </dt>
+              <dd class="col-start-2 text-wrap">{resource.description}</dd>
+            </dl>
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -1,32 +1,100 @@
 ---
-import "../styles/global.css";
+import Default from "../layouts/Default.astro";
+import OfficerCard from "@/components/OfficerCard.astro";
 
-// Components
-import { Footer, Header, OfficerTeam, Stats, WeAre } from "../components";
+interface Officer {
+  name: string;
+  role: string;
+  imagePath: string;
+}
+
+const officers: Officer[] = [
+  {
+    name: "Steven Sarber",
+    role: "President",
+    imagePath: "/src/assets/officers/steven.png",
+  },
+  {
+    name: "Sankalp Patil",
+    role: "Vice President",
+    imagePath: "/src/assets/officers/sandy.jpg",
+  },
+  {
+    name: "Kai Black",
+    role: "Treasurer",
+    imagePath: "/src/assets/officers/kai.png",
+  },
+  {
+    name: "Cassius Villareal",
+    role: "Webmaster",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+  {
+    name: "Nicolas Rist",
+    role: "Competitive Programming Officer",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+  {
+    name: "Sebastian Torresola",
+    role: "Competitive Programming Officer",
+    imagePath: "/src/assets/officers/sebastian.jpeg",
+  },
+  {
+    name: "Peter Mora-Stevens",
+    role: "Career Officer",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+  {
+    name: "Will Teyema",
+    role: "Online Officer",
+    imagePath: "/src/assets/officers/will.jpg",
+  },
+  {
+    name: "Carson Secrest",
+    role: "Internal Outreach",
+    imagePath: "/src/assets/officers/carson.jpg",
+  },
+  {
+    name: "Skylar Soon",
+    role: "External Outreach",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+  {
+    name: "Mack Lieu",
+    role: "Graphics Design Officer",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+  {
+    name: "Otso Barron",
+    role: "Lab Manager",
+    imagePath: "/src/assets/officers/placeholder-square.jpg",
+  },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/acmlogo.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>About Us - ACM @ OSU</title>
-  </head>
-  <body>
-    <main>
-      <Header client:load />
-      <Stats  client:load />
-      <WeAre client:load />
-      <OfficerTeam client:load />
-      <Footer />
-    </main>
-  </body>
-</html>
+<Default>
+  <div class="text-white max-w-[46rem] space-y-12 mx-8">
+    <div class="space-y-2">
+      <h2 class="text-5xl text-center font-semibold">Who are we?</h2>
+      <p class="text-justify">
+        At the ACM Student Chapter at OSU, we unite students with an interest in
+        computer science. We offer a mix of professional development and social
+        activities, ensuring our members thrive both academically and socially.
+      </p>
+    </div>
+    <div class="space-y-2">
+      <h2 class="text-5xl text-center font-semibold mb-6">Our Team</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        {
+          officers.map((officer) => (
+            <OfficerCard
+              name={officer.name}
+              role={officer.role}
+              imagePath={officer.imagePath}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Default>
