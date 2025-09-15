@@ -1,0 +1,38 @@
+---
+import "../styles/theme.css";
+import "@fontsource-variable/space-grotesk";
+import BaseNav from "../components/layout/BaseNav.astro";
+import BaseFooter from "../components/layout/BaseFooter.astro";
+
+interface Props {
+  title?: string;
+  bannerMessage?: string;
+}
+
+const { title = "ACM - Oregon State University", bannerMessage } =
+  Astro.props as Props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-white">
+    <BaseNav />
+    {
+      bannerMessage && (
+        <div class="bg-primary text-white font-semibold text-3xl text-center py-2 mb-8">
+          {bannerMessage}
+        </div>
+      )
+    }
+    <main class="flex flex-col items-center mb-12">
+      <slot />
+    </main>
+    <BaseFooter />
+  </body>
+</html>

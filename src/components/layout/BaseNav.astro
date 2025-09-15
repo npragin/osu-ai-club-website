@@ -1,0 +1,29 @@
+---
+import Logo from "../Logo.astro";
+import Hamburger from "../HamburgerMenu.tsx";
+---
+
+<header
+  class="flex justify-between items-center px-6 py-4 text-xl font-semibold text-white w-full z-50"
+>
+  <Logo />
+  <div class="space-x-8 items-center hidden sm:flex">
+    <a
+      href={"/about/"}
+      class="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md">about</a
+    >
+    <a
+      href={"/resources/"}
+      class="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
+      >resources</a
+    >
+    <a
+      href="https://discord.gg/cCtv2RgAJ8"
+      class="border-2 text-white px-4 py-1 rounded-md truncate hover:bg-white hover:bg-opacity-10"
+      >join us!</a
+    >
+  </div>
+  <div class="sm:hidden">
+    <Hamburger client:only="react" />
+  </div>
+</header>
