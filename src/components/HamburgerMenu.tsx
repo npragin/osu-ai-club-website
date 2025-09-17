@@ -21,11 +21,11 @@ const HamburgerMenu = () => {
             href={"/resources/"}
             className="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
           >
-            resources
+            project workshop
           </a>
           <a
             href="https://discord.gg/cCtv2RgAJ8"
-            className="border-2 text-white px-4 py-1 rounded-md truncate hover:bg-white hover:bg-opacity-10"
+            className="border-2 px-4 py-1 rounded-md truncate hover:bg-white hover:bg-opacity-10"
           >
             join us!
           </a>
