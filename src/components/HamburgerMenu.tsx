@@ -24,7 +24,7 @@ const HamburgerMenu = () => {
             project workshop
           </a>
           <a
-            href="https://discord.gg/cCtv2RgAJ8"
+            href="https://discord.com/invite/2rncuBvaUC"
             className="border-2 px-4 py-1 rounded-md truncate hover:bg-white hover:bg-opacity-10"
           >
             join us!
