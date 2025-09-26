@@ -18,7 +18,7 @@ const HamburgerMenu = () => {
             about
           </a>
           <a
-            href={"/resources/"}
+            href={"/project-workshop/"}
             className="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
           >
             project workshop
