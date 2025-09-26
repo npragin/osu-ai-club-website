@@ -18,13 +18,13 @@ const HamburgerMenu = () => {
             about
           </a>
           <a
-            href={"/resources/"}
+            href={"/project-workshop/"}
             className="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
           >
             project workshop
           </a>
           <a
-            href="https://discord.gg/cCtv2RgAJ8"
+            href="https://discord.com/invite/2rncuBvaUC"
             className="border-2 px-4 py-1 rounded-md truncate hover:bg-white hover:bg-opacity-10"
           >
             join us!
