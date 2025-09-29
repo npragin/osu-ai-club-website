@@ -1,10 +1,10 @@
 ---
 import Default from "../layouts/Default.astro";
 import Marquee from "@/components/ui/marquee";
+import { Icon } from "astro-icon/components";
 
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import heroAcm from "@/assets/acm.svg";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png}",
@@ -48,13 +48,23 @@ const BANNER_MESSAGE = undefined;
     projects, interactive workshops, and talks from industry 
       experts—building skills that go beyond the classroom. 
     </p>
-        <h3 class="text-2xl text-center font-semibold">Meetings on Wednesdays in KEC 1001 @ 6-7pm</h3>
-<h3 class="text-2xl text-center font-semibold">   Zoom link:{" "}
-  <a href="https://beav.es/AIC_Zoom" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:underline">
-    beav.es/AIC_Zoom
-  </a>
-</h3>
-  
+    <h3 class="text-2xl text-center font-semibold">
+      Meetings on Wednesdays in KEC 1001 @ 6-7pm and 
+      <span class="inline-flex items-center gap-1 align-middle pb-1">
+        <a
+          href="https://beav.es/AIC_Zoom"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-orange-400 hover:underline align-middle"
+        >
+          Zoom
+        </a>
+        <Icon
+          name="external-link"
+          class="text-primary self-center align-middle"
+        />
+      </span>
+    </h3>
   </div>
   
   <div class="my-4">
