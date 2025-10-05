@@ -1,0 +1,34 @@
+---
+import Default from "../layouts/Default.astro";
+import ResourceCard, { type Resource } from "@/components/ResourceCard.astro";
+
+const MEETINGS: Resource[] = [
+  {
+    title: "Week 1: General & Project Meeting",
+    link: "https://media.oregonstate.edu/playlist/dedicated/1_6ezgyls8/1_16331596",
+    description: "[Oct. 1] Introduction to the Oregon State AI Club, officer team, and plans for upcoming project sessions.",
+  },
+];
+
+const TECHTALKS: Resource[] = [
+  {
+    title: "Tech Talk #1: Kaushik Mitra",
+    link: "https://media.oregonstate.edu/playlist/dedicated/1_6ezgyls8/1_8cm2j57o",
+    description: "[Sept. 26] Guest speaker, Kaushik Mitra, discusses his professional journey in the tech industry and his path to becoming a Machine Learning Engineer at Google.",
+  },
+];
+
+---
+
+<Default>
+  <div class="w-full max-w-2xl px-4 space-y-8 min-h-0">
+    <div class="space-y-2">
+      <h2 class="text-5xl text-center font-semibold">Recordings: <br>Meetings & Tech Talks</h2>
+      <p class="text-justify">
+        Couldn't make an AIC meeting or Tech Talk? Catch up on our weekly meetings and special events here! 
+      </p>
+    </div>
+    <ResourceCard resources={MEETINGS} title="Club Meetings" />
+    <ResourceCard resources={TECHTALKS} title="Tech Talks" />
+  </div>
+</Default>
