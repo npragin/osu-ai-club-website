@@ -18,6 +18,12 @@ const HamburgerMenu = () => {
             about
           </a>
           <a
+            href={"/slides/"}
+            className="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
+          >
+            slides
+          </a>
+          <a
             href={"/recordings/"}
             className="hover:bg-white hover:bg-opacity-10 px-2 py-2 rounded-md"
           >
