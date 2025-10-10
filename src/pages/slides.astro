@@ -1,0 +1,44 @@
+---
+import Default from "../layouts/Default.astro";
+import ResourceCard, { type Resource } from "@/components/ResourceCard.astro";
+
+const GENERAL: Resource[] = [
+  {
+    title: "Week 1: Introduction to AIC",
+    link: "../../public/pdfs/week_one_gm.pdf",
+    description: "Introduction to the Oregon State Artificial Intelligence Club and our officer team.",
+  },
+  {
+    title: "Week 2: Mathematical Foundations of AI/ML",
+    link: "../../public/pdfs/week_two_gm.pdf",
+    description: "Basics of linear algebra & statistics, Frequentist vs Bayesian methods, and formulas for MLE & MAP.",
+  },
+];
+
+const PROJECT: Resource[] = [
+  {
+    title: "Week 1: Setup & Learning New Skills",
+    link: "https://docs.google.com/presentation/d/1ZUaM87qIPGbpf26SnlixluR_Qz4fDzvtmiw0bO50dPg",
+    description: "Project Workshop intro, environment setup, tutorials, and project ideation",
+  },
+  {
+     title: "Week 2: Problem & Dataset Selection",
+     link: "https://docs.google.com/presentation/d/1_Ap964GPX7UonQ1eo10QadYX4moS7GZC-YlZph8eJY4",
+      description: "Problem and dataset selection with examples and dataset repositories",
+  },
+];
+
+---
+
+<Default>
+  <div class="w-full max-w-2xl px-4 space-y-8 min-h-0">
+    <div class="space-y-2">
+      <h2 class="text-5xl text-center font-semibold">Meeting Slides</h2>
+      <p class="text-center">
+        Catch up on our general and project meetings slides here! 
+      </p>
+    </div>
+    <ResourceCard resources={GENERAL} title="General Meetings" />
+    <ResourceCard resources={PROJECT} title="Project Workshops" />
+  </div>
+</Default>
