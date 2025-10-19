@@ -92,10 +92,10 @@ const BANNER_MESSAGE = undefined;
       {
         topMarqueeImages.map((resolver) => (
           <Image
-            class="rounded-lg h-64"
+            class="rounded-lg h-64 w-auto overflow-hidden"
             src={resolver()}
             alt="ACM Event Image"
-            height="300"
+            height="800"
           />
         ))
       }
@@ -104,10 +104,10 @@ const BANNER_MESSAGE = undefined;
       {
         botMarqueeImages.map((resolver) => (
           <Image
-            class="rounded-lg h-64"
+            class="rounded-lg h-64 w-auto overflow-hidden"
             src={resolver()}
             alt="ACM Event Image"
-            height="300"
+            height="800"
           />
         ))
       }
